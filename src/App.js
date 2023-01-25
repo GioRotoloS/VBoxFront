@@ -6,6 +6,7 @@ import {
 import Login from "./pages/Login";
 import Report from "./pages/Report";
 import Home from "./pages/Home";
+import "./style.scss"
 
 const router = createBrowserRouter([
   {
@@ -24,8 +25,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={router}/>
+    <div className="app">
+      <div className="container">
+        <RouterProvider router={router}/>
+      </div>
     </div>
   );
 }
