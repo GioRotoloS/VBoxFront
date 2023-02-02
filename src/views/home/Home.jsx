@@ -1,26 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import p2 from "../img/p2.jpg";
-import p1 from "../img/p1.jpg";
-import p3 from "../img/p3.jpg";
-import p4 from "../img/p4.jpg";
-import p5 from "../img/p5.jpg";
-import p6 from "../img/p6.jpg";
+import Navbar from '../../components/Navbar';
+import nofotos from "../../img/nofotos.png";
+
 
 const Home = () => {
     return (
         <div className="home">
-
-            <h1>Tabla de Proyectos</h1>
-
+            <>
+            <Navbar/>
+            </>
             <div className="projects">
                 <div className="fila">
                     <div className="project">
                         <div className="img">
-                            <img src={p1} alt=""/>
+                           <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
-                            <Link className="link">
+                            <Link className="link" to="/report">
                                 <h1>Prueba 1</h1>
                                 <p></p>
                             </Link>
@@ -28,18 +25,18 @@ const Home = () => {
                     </div>
                     <div className="project">
                         <div className="img">
-                            <img src={p2} alt=""/>
+                        <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
                             <Link className="link">
-                                <h2>Prueba 2</h2>
+                                <h1>Prueba 2</h1>
                                 <p></p>
                             </Link>
                         </div>
                     </div>
                     <div className="project">
                         <div className="img">
-                            <img src={p3} alt=""/>
+                        <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
                             <Link className="link">
@@ -53,7 +50,7 @@ const Home = () => {
                 <div className="fila">
                     <div className="project">
                         <div className="img">
-                            <img src={p4} alt=""/>
+                        <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
                             <Link className="link">
@@ -64,7 +61,7 @@ const Home = () => {
                     </div>
                     <div className="project">
                         <div className="img">
-                            <img src={p5} alt=""/>
+                        <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
                             <Link className="link">
@@ -75,7 +72,7 @@ const Home = () => {
                     </div>
                     <div className="project">
                         <div className="img">
-                            <img src={p6} alt=""/>
+                        <img src={nofotos} alt="" />
                         </div>
                         <div className="content">
                             <Link className="link">

@@ -2,10 +2,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from "./views/Login";
-import Report from "./views/Report";
-import Home from "./views/Home";
+import Login from "./views/auth/Login";
+import Report from "./views/home/Report";
+import Home from "./views/home/Home";
 import "./style.scss"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
