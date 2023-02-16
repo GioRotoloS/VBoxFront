@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import nofotos from "../../img/nofotos.png";
+import {Button, Card, CardBody, CardGroup, CardImg, CardTitle} from 'reactstrap'
 
 
 const Home = () => {
@@ -10,78 +11,98 @@ const Home = () => {
             <>
             <Navbar/>
             </>
-            <div className="projects">
-                <div className="fila">
-                    <div className="project">
-                        <div className="img">
-                           <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link" to="/report">
-                                <h1>Prueba 1</h1>
-                                <p></p>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="img">
-                        <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link">
-                                <h1>Prueba 2</h1>
-                                <p></p>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="img">
-                        <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link">
-                                <h1>Prueba 3</h1>
-                                <p></p>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className="fila">
-                    <div className="project">
-                        <div className="img">
-                        <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link">
-                                <h1>Prueba 4</h1>
-                                <p></p>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="img">
-                        <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link">
-                                <h1>Prueba 5</h1>
-                                <p></p>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="img">
-                        <img src={nofotos} alt="" />
-                        </div>
-                        <div className="content">
-                            <Link className="link">
-                                <h1>Prueba 6</h1>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                    
+            
+            <div className='container justify-content-center text-center' style={{
+        width: 700,
+        marginTop: 10,
+        marginBottom: 10
+      }}>
+                <CardGroup style={{
+                    marginTop: 10,
+                }}>
+                    <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                    <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                    <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </CardGroup>
+                <CardGroup style={{
+                    marginTop: 10
+                }}>
+                <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                    <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                    <Card className='m-2 p-1 border rounded'>
+                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                Card title
+                            </CardTitle>
+                            <Button href='/report' style={{
+                                background: "#0c5aa9"
+                            }}>
+                                Reporte
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </CardGroup>
             </div>
 
         </div>

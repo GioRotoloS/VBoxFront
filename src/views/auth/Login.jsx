@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import {  useNavigate } from 'react-router-dom';
+import { Button, Form, Row, Col, Input, FormGroup  } from 'reactstrap';
 import vbox from "../../img/vbox.png";
 
 const Login = () => {
@@ -25,22 +25,43 @@ const handleSubmit = async (e) =>{
 
 
     return (
-      <div className="auth">
+      <div className='container justify-content-center text-center shadow p-3 mb-5 bg-body border rounded' style={{
+        width: 300,
+        marginTop: 100
+      }}>
+        <div>
+        <img src={vbox} alt="" style={{
+          marginTop: 20,
+          width: '90%',
+          marginBottom: 20,
+        }}/>
+        </div>
+        <h5>
+          Reportes
+        </h5>
+        <div style={{
+          padding: 20
+        }}>
+          <Form>
+            
+              <FormGroup>
+                <Input id="User" name="user" placeholder="Usuario" type="text"/>
+              </FormGroup>
+            
 
-        <div className="container">
-          <div>
-           <img src={vbox} alt="" />
+            <FormGroup>
+            <Input id="Password" name="password" placeholder="Contraseña" type="password"/>
+            </FormGroup>
+          </Form>
+          <div className='d-grid gap-2 col-9 mx-auto'>
+            <Button href='/' style={{
+              background: "#0c5aa9"
+            }}>
+              Ingresar
+            </Button>
           </div>
         </div>
-        
-      <h1>Reportes</h1>
-      <form>
-          <input required type={"text"} placeholder="username" name="username"/>
-          <input required type={"password"} placeholder="password" name="password"/>
-          <Button onClick={handleSubmit}>Ingresar</Button>
-          {err && <p>{err}</p>}
-      </form>
-  </div>
+      </div>
     )
 }
 

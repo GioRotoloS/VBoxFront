@@ -5,7 +5,6 @@ import {
 import Login from "./views/auth/Login";
 import Report from "./views/home/Report";
 import Home from "./views/home/Home";
-import "./style.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
@@ -26,7 +25,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
-      <div className="container">
+      <div>
         <RouterProvider router={router}/>
       </div>
     </div>
