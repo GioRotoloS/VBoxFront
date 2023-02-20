@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import {Table} from 'reactstrap';
+import {Table, Button} from 'reactstrap';
 
 const Report = () => {
     return (
@@ -13,14 +13,31 @@ const Report = () => {
                     margin: 30
                 }}>
                     <div style={{
+                        marginLeft:20,
                         
                     }}>
-                        <input type="date" name="fecha1" id="fecha1"/>
-                        <input type="date" name="fecha2" id="fecha2"/>
-                        <button>Buscar</button>
-                        <div className="btn">
-                            <button>PDF</button>
-                            <button>Excel</button>
+                        <input type="date" name="fecha1" id="fecha1" style={{
+                            marginRight: 20
+                        }}/>
+                        <input type="date" name="fecha2" id="fecha2" style={{
+                            marginRight: 20
+                        }}/>
+                        <Button style={{
+                        background: "#0c5aa9"
+                        }}>Buscar</Button>
+                        <div className="btn" style={{
+                            marginLeft: 500,
+                            
+                        }}>
+                            <Button style={{
+                            background: "#F40F02",
+                            margin: 10
+                            }}>PDF
+                            </Button>
+                            <Button style={{
+                            background: "#2d572d"
+                            }}>Excel
+                            </Button>
                         </div>
                     </div>
 
@@ -88,6 +105,10 @@ const Report = () => {
                             </tbody>
                         </Table>
                     </div>
+
+                    <Button style={{
+                        marginLeft: 1000
+                    }} href="/">Regresar</Button>
                 </div>
         </div>
     )
