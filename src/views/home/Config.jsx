@@ -3,7 +3,8 @@ import Navbar from '../../components/Navbar';
 
 const Config = () => {
     return(
-        <div className="config">
+        <div className="config" style={{
+        }}>
         <>
             <Navbar/>
             </>

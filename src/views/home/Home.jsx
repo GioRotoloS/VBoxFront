@@ -1,108 +1,70 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import Navbar from '../../components/Navbar';
 import nofotos from "../../img/nofotos.png";
-import {Button, Card, CardBody, CardGroup, CardImg, CardTitle} from 'reactstrap'
+import {Button, Card, CardBody, CardGroup, CardImg, CardTitle, Row, Col} from 'reactstrap';
 
 
 const Home = () => {
+
+    const [posts, setPosts] = useState([])
+
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            try{
+
+                const res = await axios.get(`http://localhost:5500/api/posts/companies`)
+                setPosts(res.data);
+
+            }catch(err){
+                console.log(err)}
+        };
+        fetchData();
+
+    },[]);
+
     return (
-        <div className="home">
+        <div className="home" style={{
+
+        }}>
             <>
             <Navbar/>
             </>
             
-            <div className='container justify-content-center text-center' style={{
-        width: 700,
-        marginTop: 10,
-        marginBottom: 10
-      }}>
-                <CardGroup style={{
+            <div className='container fluid justify-content-center text-center' style={{
+                width: 700,
+                marginTop: 10,
+                marginBottom: 10
+            }}>
+                <Row xs={1} md={3} style={{
                     marginTop: 10,
                 }}>
-                    <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
+                    {posts.map((companies)=>(
+                        <Col>
+                            <Card className='m-2 p-1 border rounded' key={companies.cid} style={{
+                                width: "220px"
                             }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
-                            }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
-                            }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                </CardGroup>
-                <CardGroup style={{
-                    marginTop: 10
-                }}>
-                <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
-                            }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
-                            }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                    <Card className='m-2 p-1 border rounded'>
-                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Card title
-                            </CardTitle>
-                            <Button href='/report' style={{
-                                background: "#0c5aa9"
-                            }}>
-                                Reporte
-                            </Button>
-                        </CardBody>
-                    </Card>
-                </CardGroup>
+                                {/* <CardImg alt="Card image cap" src={companies.picture} top width="100%" height="100px"/> */}
+                                {companies.picture?(
+                                        <CardImg alt="Card image cap" src={companies.picture} top width="100%" height="100px"/>
+                                    ) : (
+                                        <CardImg alt="Card image cap" src={nofotos} top width="100%" height="100px"/>
+                                    )}
+                                <CardBody>
+                                    <CardTitle tag="h5">
+                                        {companies.name}
+                                    </CardTitle>
+                                    <Button href= {`/report/${companies.cid}`} style={{
+                                        background: "#0c5aa9"
+                                    }}>
+                                        Reporte
+                                    </Button>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
             </div>
 
         </div>

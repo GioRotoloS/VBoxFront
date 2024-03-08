@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
 } from 'reactstrap';
+import { AuthContext } from "../utils/authContext";
 import logo from "../img/vboxlogo3.png";
 
 function Menu({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const { currentUser, logout } = useContext(AuthContext);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
     <div>
       <Navbar style={{
-        background: '#0c5aa9'
+        background: '#0c5aa9',
+        width: "100%"
       }}>
-        <NavbarBrand href="/">
+        <NavbarBrand href="/home">
         <img src={logo} alt="" style={{
           marginLeft: 20,
           width: '100%',
@@ -36,12 +35,10 @@ function Menu({ direction, ...args }) {
         <div style={{
           marginLeft: 750,
           color: 'white'
-        }}>Usuario</div>
-        <navbar>
+        }}>{currentUser?.name}</div>
+        <Navbar>
           <Nav className="me-auto" navbar>
-            <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} nav style={{
-              marginRight: 50,
-            }}>
+            <UncontrolledDropdown isOpen={dropdownOpen} toggle={toggle} direction={direction} nav>
               <DropdownToggle nav caret style={{
                 color: 'white'
               }}>
@@ -50,11 +47,11 @@ function Menu({ direction, ...args }) {
               <DropdownMenu {...args}>
                 <DropdownItem href='/config'>Configuraciones</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem href='/login'>Salir</DropdownItem>
+                <DropdownItem onClick={logout} href="/">Salir</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-        </navbar>
+        </Navbar>
       </Navbar>
     </div>
   );

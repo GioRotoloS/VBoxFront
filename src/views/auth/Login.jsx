@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
-import { Button, Form, Row, Col, Input, FormGroup  } from 'reactstrap';
+import { Button, Form, Input, FormGroup  } from 'reactstrap';
 import vbox from "../../img/vbox.png";
+import { useContext } from "react";
+import { AuthContext } from "../../utils/authContext";
 
 const Login = () => {
 
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+});
 
-  const [err,setError] = useState(null);
-const navigate = useNavigate();
+const [err,setError] = useState(null)
+
+const navigate = useNavigate()
+
+const {login} = useContext(AuthContext);
+
+const handleChange = (e) =>{
+    setInputs((prev)=>({...prev, [e.target.name]: e.target.value}));
+};
 
 const handleSubmit = async (e) =>{
-  e.preventDefault()
+    e.preventDefault()
 
-  try{
-      
-      
-      navigate("/");
+    try{
+        
+        await login(inputs)
+        navigate("/home");
 
-  }catch(err){
-      setError(err.response.data)
-  }
+    }catch(err){
+        setError(err.response.data)
+    }
 }
 
 
@@ -45,20 +58,21 @@ const handleSubmit = async (e) =>{
           <Form>
             
               <FormGroup>
-                <Input id="User" name="user" placeholder="Usuario" type="text"/>
+                <Input id="Email" name="email" placeholder="Email" type="email" onChange={handleChange}/>
               </FormGroup>
             
 
             <FormGroup>
-            <Input id="Password" name="password" placeholder="Contraseña" type="password"/>
+            <Input id="Pass" name="pass" placeholder="Contraseña" type="password" onChange={handleChange}/>
             </FormGroup>
           </Form>
           <div className='d-grid gap-2 col-9 mx-auto'>
-            <Button href='/' style={{
+            <Button style={{
               background: "#0c5aa9"
-            }}>
+            }} onClick={handleSubmit}>
               Ingresar
             </Button>
+            {err && <p>{err}</p>}
           </div>
         </div>
       </div>

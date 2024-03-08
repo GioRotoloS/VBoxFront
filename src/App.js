@@ -1,32 +1,25 @@
 import {
-  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Login from "./views/auth/Login";
-import Report from "./views/home/Report";
-import Home from "./views/home/Home";
+import React, { useContext, useState } from 'react';
+import router  from "./utils/routes";
+import privaterouter from "./utils/privateRoutes";
+import { AuthContext } from "./utils/authContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-  },
-  {
-    path: "/report",
-    element: <Report/>,
-  },
-  {
-    path: "/login",
-    element: <Login/>,
-  },
-]);
+export const App = () => {
 
-function App() {
+  const { currentUser } = useContext(AuthContext);
+
+
   return (
     <div className="app">
       <div>
+      {currentUser?(
+        <RouterProvider router={privaterouter}/>
+      ) : (
         <RouterProvider router={router}/>
+      )}
       </div>
     </div>
   );

@@ -3,9 +3,15 @@ import Navbar from '../../components/Navbar';
 import {Table, Button} from 'reactstrap';
 
 const Report = () => {
+
+    const user = localStorage.getItem("user")
+    console.log(user);
     return (
 
-        <div className="report">
+    
+
+        <div className="report" style={{
+        }}>
             <>
             <Navbar/>
             </>
@@ -108,7 +114,7 @@ const Report = () => {
 
                     <Button style={{
                         marginLeft: 1000
-                    }} href="/">Regresar</Button>
+                    }} href="/home">Regresar</Button>
                 </div>
         </div>
     )
